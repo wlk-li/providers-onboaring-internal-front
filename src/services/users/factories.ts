@@ -1,20 +1,6 @@
 import { createQueryKeys } from "@lukemorales/query-key-factory";
 
-import { createUser, deleteUser, getUsersList, updateUser } from "./api";
+// TODO: user query key factory library to generate your keys
+export const queries = createQueryKeys("users", {});
 
-export const queries = createQueryKeys("users", {
-  list: (params) => {
-    return {
-      queryKey: [params],
-      queryFn: () => {
-        return getUsersList(params);
-      },
-    };
-  },
-});
-
-export const mutations = {
-  create: createUser,
-  delete: deleteUser,
-  update: updateUser,
-};
+export const mutations = {};

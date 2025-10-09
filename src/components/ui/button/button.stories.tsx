@@ -1,17 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Icons } from "@/components/ui";
 import { Button, type ButtonProps } from "./button";
 
-const sizes: ButtonProps["size"][] = ["default", "icon", "lg", "sm"];
-const variants: ButtonProps["variant"][] = [
-  "primary",
-  "secondary",
-  "tertiary",
-  "outlined",
-  "elevated",
-  "plainText",
-];
+const sizes: ButtonProps["size"][] = ["default", "lg", "sm"];
+const variants: ButtonProps["variant"][] = ["primary", "secondary"];
 
 const meta: Meta<typeof Button> = {
   args: { children: "Button" },
@@ -30,7 +22,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const All: Story = {
-  render: ({ children, ...props }) => {
+  render: (props) => {
     return (
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         {variants.map((variant) => {
@@ -44,9 +36,7 @@ export const All: Story = {
                     <div className="flex items-center gap-2">
                       <p className="font-medium uppercase">{size}</p>
 
-                      <Button {...props} size={size} variant={variant}>
-                        {size === "icon" ? <Icons.Home /> : children}
-                      </Button>
+                      <Button {...props} size={size} variant={variant} />
                     </div>
                   </div>
                 );
@@ -60,7 +50,7 @@ export const All: Story = {
 };
 
 export const Disabled: Story = {
-  render: ({ children, ...props }) => {
+  render: (props) => {
     return (
       <div className="grid grid-cols-3 gap-10">
         {variants.map((variant) => {
@@ -74,9 +64,7 @@ export const Disabled: Story = {
                     <div className="flex items-center gap-2">
                       <p className="font-medium uppercase">{size}</p>
 
-                      <Button {...props} size={size} variant={variant} disabled>
-                        {size === "icon" ? <Icons.Home /> : children}
-                      </Button>
+                      <Button {...props} size={size} variant={variant} disabled />
                     </div>
                   </div>
                 );
@@ -90,12 +78,3 @@ export const Disabled: Story = {
 };
 
 export const Default: Story = {};
-
-export const Loading: Story = {
-  args: {
-    isLoading: true,
-  },
-  render: ({ children, ...props }) => {
-    return <Button {...props}>{children}</Button>;
-  },
-};
