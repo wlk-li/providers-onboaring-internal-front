@@ -32,6 +32,9 @@ importers:
       axios:
         specifier: ^1.12.0
         version: 1.12.0
+      npm-check-updates:
+        specifier: ^19.1.1
+        version: 19.1.1
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -2915,6 +2918,11 @@ packages:
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+
+  npm-check-updates@19.1.1:
+    resolution: {integrity: sha512-vy/uNbaK6Xfj/QzM8OXeALZak67E0uHjUlbdT1YGy4bdj0xlBU6AVd+8bscY8vlDpyzL6Y7mxcrX8kzEDeEpNg==}
+    engines: {node: '>=20.0.0', npm: '>=8.12.1'}
+    hasBin: true
 
   nwsapi@2.2.20:
     resolution: {integrity: sha512-/ieB+mDe4MrrKMT8z+mQL8klXydZWGR5Dowt4RAGKbJ3kIGEx3X4ljUo+6V73IXtUPWgfOlU5B9MlGxFO5T+cA==}
@@ -6791,6 +6799,8 @@ snapshots:
   node-releases@2.0.19: {}
 
   normalize-path@3.0.0: {}
+
+  npm-check-updates@19.1.1: {}
 
   nwsapi@2.2.20: {}
 
