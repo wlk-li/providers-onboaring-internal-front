@@ -20,17 +20,11 @@ const avatarVariants = tv({
 });
 
 export type AvatarProps = {
-  firstInitial: string;
-  lastInitial: string;
+  initials: string;
 } & VariantProps<typeof avatarVariants>;
 
-const Avatar = ({ firstInitial, lastInitial, size, variant }: AvatarProps) => {
-  return (
-    <div className={avatarVariants({ variant, size })}>
-      {firstInitial}
-      {lastInitial}
-    </div>
-  );
+const Avatar = ({ initials, size, variant }: AvatarProps) => {
+  return <div className={avatarVariants({ variant, size })}>{initials}</div>;
 };
 
 export { Avatar, avatarVariants };
