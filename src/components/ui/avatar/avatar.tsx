@@ -4,7 +4,7 @@ const avatarVariants = tv({
   base: "flex items-center justify-center rounded-full",
   variants: {
     variant: {
-      primary: "bg-blue-500 font-bold text-white",
+      primary: "bg-background-brand-default font-bold text-white",
     },
     size: {
       sm: "h-6 w-6 text-xs",
