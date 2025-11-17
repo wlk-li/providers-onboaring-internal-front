@@ -23,8 +23,6 @@ export type AvatarProps = {
   initials: string;
 } & VariantProps<typeof avatarVariants>;
 
-const Avatar = ({ initials, size, variant }: AvatarProps) => {
+export const Avatar = ({ initials, size, variant }: AvatarProps) => {
   return <div className={avatarVariants({ variant, size })}>{initials}</div>;
 };
-
-export { Avatar, avatarVariants };
