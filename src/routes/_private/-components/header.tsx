@@ -1,5 +1,4 @@
-import { Avatar, BrandLogo } from "@/components";
-import { Subtext, Text, TextStack } from "@/components";
+import { Avatar, BrandLogo, Subtext, Text, TextStack } from "@/components";
 
 export const Header = () => {
   return (
