@@ -10,7 +10,7 @@ const textStackVariants = tv({
 
 const { subtext, text } = textStackVariants();
 
-export const Text = ({ children, className, ...props }: ComponentPropsWithoutRef<"h2">) => {
+const Text = ({ children, className, ...props }: ComponentPropsWithoutRef<"h2">) => {
   return (
     <h2 className={text({ className })} {...props}>
       {children}
@@ -18,7 +18,7 @@ export const Text = ({ children, className, ...props }: ComponentPropsWithoutRef
   );
 };
 
-export const Subtext = ({ children, className, ...props }: ComponentPropsWithoutRef<"span">) => {
+const Subtext = ({ children, className, ...props }: ComponentPropsWithoutRef<"span">) => {
   return (
     <span className={subtext({ className })} {...props}>
       {children}
@@ -26,10 +26,16 @@ export const Subtext = ({ children, className, ...props }: ComponentPropsWithout
   );
 };
 
-export const TextStack = ({ children, className, ...props }: ComponentPropsWithoutRef<"div">) => {
+const Wrapper = ({ children, className, ...props }: ComponentPropsWithoutRef<"div">) => {
   return (
     <div className={className} {...props}>
       {children}
     </div>
   );
+};
+
+export const TextStack = {
+  Subtext,
+  Text,
+  Wrapper,
 };
