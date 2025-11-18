@@ -1,31 +1,35 @@
-import { tv, type VariantProps } from "tailwind-variants";
+import type { ComponentPropsWithoutRef } from "react";
+import { tv } from "tailwind-variants";
 
-const textVariants = tv({
-  base: "font-bold",
+const textStackVariants = tv({
+  slots: {
+    text: "font-bold",
+    subtext: "font-extralight",
+  },
 });
 
-const subtextVariants = tv({
-  base: "font-extralight",
-});
+const { subtext, text } = textStackVariants();
 
-export type TextProps = React.PropsWithChildren &
-  VariantProps<typeof textVariants> & {
-    className?: string;
-  };
-
-export const Text = ({ children, className }: TextProps) => {
-  return <h2 className={`${textVariants()} ${className || ""}`}>{children}</h2>;
+export const Text = ({ children, className, ...props }: ComponentPropsWithoutRef<"h2">) => {
+  return (
+    <h2 className={text({ className })} {...props}>
+      {children}
+    </h2>
+  );
 };
 
-export type SubtextProps = React.PropsWithChildren &
-  VariantProps<typeof subtextVariants> & {
-    className?: string;
-  };
-
-export const Subtext = ({ children, className }: SubtextProps) => {
-  return <span className={`${subtextVariants()} ${className || ""}`}>{children}</span>;
+export const Subtext = ({ children, className, ...props }: ComponentPropsWithoutRef<"span">) => {
+  return (
+    <span className={subtext({ className })} {...props}>
+      {children}
+    </span>
+  );
 };
 
-export const TextStack = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+export const TextStack = ({ children, className, ...props }: ComponentPropsWithoutRef<"div">) => {
+  return (
+    <div className={className} {...props}>
+      {children}
+    </div>
+  );
 };
