@@ -43,7 +43,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <div className={container({ className: containerClassName })}>
-      <div className="relative flex flex-row items-center rounded-md bg-neutral-100">
+      <div className="bg-neutral-75 relative flex flex-row items-center rounded-md">
         {left ? (
           <IconWrapper className={leftIcon()} size={leftIconSize}>
             {left}
