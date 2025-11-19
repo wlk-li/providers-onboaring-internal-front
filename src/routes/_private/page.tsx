@@ -5,7 +5,7 @@ import { Icons, Input, Subtext, Text, TextStack } from "@/components";
 const HomePage = () => {
   return (
     <div className="flex flex-col gap-4">
-      <div className="mx-auto flex h-21 max-w-6xl justify-between">
+      <div className="mx-auto flex h-21 max-w-6xl flex-col">
         <TextStack>
           <Text className="text-lg text-text-brand-on-brand-secondary">Healthcare Providers</Text>
           <Subtext className="text-base text-text-brand-on-brand-secondary">

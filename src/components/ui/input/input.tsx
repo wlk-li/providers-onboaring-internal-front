@@ -8,7 +8,7 @@ const inputVariants = tv({
   slots: {
     container: "relative flex w-full flex-col gap-1.5",
     input:
-      "flex w-full border border-border-default-default px-3 py-1 text-base text-text-default-default transition-colors placeholder:text-text-default-tertiary focus-visible:outline-border-brand-default disabled:cursor-not-allowed disabled:bg-background-disabled-default disabled:text-text-disabled-on-disabled md:text-sm",
+      "flex w-full border border-border-default-default px-3 py-1 text-base text-text-default-default placeholder:text-text-default-tertiary",
     leftIcon:
       "pointer-events-none absolute top-1/2 left-2 flex -translate-y-1/2 items-center text-text-default-default",
   },
@@ -43,7 +43,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <div className={container({ className: containerClassName })}>
-      <div className="relative flex flex-row items-center rounded-md bg-[#FAFAFB]">
+      <div className="relative flex flex-row items-center rounded-md bg-neutral-100">
         {left ? (
           <IconWrapper className={leftIcon()} size={leftIconSize}>
             {left}
