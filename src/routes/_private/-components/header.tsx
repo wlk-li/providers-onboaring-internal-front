@@ -1,4 +1,4 @@
-import { Avatar, BrandLogo } from "@/components";
+import { Avatar, BrandLogo, TextStack } from "@/components";
 
 export const Header = () => {
   return (
@@ -8,12 +8,15 @@ export const Header = () => {
           <div className="rounded-lg bg-background-brand-default p-2">
             <BrandLogo />
           </div>
-          <div>
-            <h2 className="text-text-brand-on-brand-secondary">HealthConnect</h2>
-            <span className="font-extralight text-text-brand-on-brand-secondary">
+
+          <TextStack.Wrapper>
+            <TextStack.Text className="text-lg text-text-brand-on-brand-secondary">
+              HealthConnect
+            </TextStack.Text>
+            <TextStack.Subtext className="text-base text-text-brand-on-brand-secondary">
               Find your healthcare provider
-            </span>
-          </div>
+            </TextStack.Subtext>
+          </TextStack.Wrapper>
         </div>
         <Avatar initials="WK" />
       </div>
