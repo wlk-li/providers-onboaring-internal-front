@@ -1,5 +1,5 @@
 import { type ComponentProps, type ReactNode } from "react";
-import { tv } from "tailwind-variants";
+import { tv, type VariantProps } from "tailwind-variants";
 
 import { IconWrapper } from "@/components";
 import { SIZE, type Size, type Styled } from "@/types/styles";
@@ -14,11 +14,7 @@ const inputVariants = tv({
   },
   variants: {
     size: {
-      [SIZE.X_SMALL]: { input: "rounded-md py-1.5 pr-8 pl-8" },
-      [SIZE.SMALL]: { input: "rounded-md py-2 pr-9 pl-9" },
       [SIZE.MEDIUM]: { input: "rounded-md py-3 pr-10 pl-10" },
-      [SIZE.LARGE]: { input: "rounded-md py-4 pr-10 pl-10" },
-      [SIZE.X_LARGE]: { input: "rounded-md py-5 pr-11 pl-11" },
     },
   },
 });
@@ -28,10 +24,10 @@ const { container, input, leftIcon } = inputVariants();
 type InputProps = {
   containerClassName?: string;
   left?: ReactNode;
-  size?: Size;
   leftIconSize?: Size;
 } & Omit<ComponentProps<"input">, "size"> &
-  Styled;
+  Styled &
+  VariantProps<typeof inputVariants>;
 
 export const Input = ({
   className,
@@ -43,7 +39,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <div className={container({ className: containerClassName })}>
-      <div className="bg-neutral-75 relative flex flex-row items-center rounded-md">
+      <div className="relative flex flex-row items-center rounded-md bg-neutral-50">
         {left ? (
           <IconWrapper className={leftIcon()} size={leftIconSize}>
             {left}
