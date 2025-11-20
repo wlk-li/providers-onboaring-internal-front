@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { TextStack } from "@/components";
+import { Icons, Input, TextStack } from "@/components";
 
 const HomePage = () => {
   return (
@@ -14,6 +14,8 @@ const HomePage = () => {
             Find and connect with healthcare professionals in your area
           </TextStack.Subtext>
         </TextStack.Wrapper>
+
+        <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
       </div>
     </div>
   );
