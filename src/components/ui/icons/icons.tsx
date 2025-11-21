@@ -9,6 +9,7 @@ const LUCIDE_PREFIX = "lucide:";
 
 const AVAILABLE_ICONIFY_ICONS = {
   Check: "check",
+  Search: "search",
 };
 
 export const initializeIcons = () => {
