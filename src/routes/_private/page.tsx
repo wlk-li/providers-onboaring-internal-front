@@ -5,6 +5,7 @@ import { DropdownMenu, Icons, TextStack } from "@/components";
 import { Items } from "@/types/mock";
 
 const HomePage = () => {
+  // TODO: use react-hook-form in future task
   const [selectedGenderId, setSelectedGenderId] = useState(0);
   const [selectedSpecialtyId, setSelectedSpecialtyId] = useState(0);
   const [selectedClinicId, setSelectedClinicId] = useState(0);
