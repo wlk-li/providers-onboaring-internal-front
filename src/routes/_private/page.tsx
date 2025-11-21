@@ -2,9 +2,19 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { DropdownMenu, Icons, TextStack } from "@/components";
+import { Items } from "@/types/mock";
 
 const HomePage = () => {
-  const [selectedGender, setSelectedGender] = useState("All genders");
+  const [selectedGenderId, setSelectedGenderId] = useState(0);
+  const [selectedSpecialtyId, setSelectedSpecialtyId] = useState(0);
+
+  const selectedGender = Items.genders.find((item) => {
+    return item.id === selectedGenderId;
+  })?.label;
+
+  const selectedSpecialty = Items.specialties.find((item) => {
+    return item.id === selectedSpecialtyId;
+  })?.label;
 
   return (
     <div className="flex flex-col gap-4">
@@ -24,30 +34,41 @@ const HomePage = () => {
             <Icons.ChevronDown />
           </DropdownMenu.Trigger>
           <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            <DropdownMenu.CheckboxItem
-              checked={selectedGender === "All genders"}
-              onCheckedChange={() => {
-                return setSelectedGender("All genders");
-              }}
-            >
-              All genders
-            </DropdownMenu.CheckboxItem>
-            <DropdownMenu.CheckboxItem
-              checked={selectedGender === "Female"}
-              onCheckedChange={() => {
-                return setSelectedGender("Female");
-              }}
-            >
-              Female
-            </DropdownMenu.CheckboxItem>
-            <DropdownMenu.CheckboxItem
-              checked={selectedGender === "Male"}
-              onCheckedChange={() => {
-                return setSelectedGender("Male");
-              }}
-            >
-              Male
-            </DropdownMenu.CheckboxItem>
+            {Items.genders.map((item) => {
+              return (
+                <DropdownMenu.CheckboxItem
+                  checked={selectedGenderId === item.id}
+                  key={item.id}
+                  onCheckedChange={() => {
+                    return setSelectedGenderId(item.id);
+                  }}
+                >
+                  {item.label}
+                </DropdownMenu.CheckboxItem>
+              );
+            })}
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
+
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger className="relative flex flex-row items-center justify-between rounded-md bg-neutral-50">
+            {selectedSpecialty}
+            <Icons.ChevronDown />
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
+            {Items.specialties.map((item) => {
+              return (
+                <DropdownMenu.CheckboxItem
+                  checked={selectedSpecialtyId === item.id}
+                  key={item.id}
+                  onCheckedChange={() => {
+                    return setSelectedSpecialtyId(item.id);
+                  }}
+                >
+                  {item.label}
+                </DropdownMenu.CheckboxItem>
+              );
+            })}
           </DropdownMenu.Content>
         </DropdownMenu.Root>
       </div>
