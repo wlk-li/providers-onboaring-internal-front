@@ -7,6 +7,7 @@ import { Items } from "@/types/mock";
 const HomePage = () => {
   const [selectedGenderId, setSelectedGenderId] = useState(0);
   const [selectedSpecialtyId, setSelectedSpecialtyId] = useState(0);
+  const [selectedClinicId, setSelectedClinicId] = useState(0);
 
   const selectedGender = Items.genders.find((item) => {
     return item.id === selectedGenderId;
@@ -14,6 +15,10 @@ const HomePage = () => {
 
   const selectedSpecialty = Items.specialties.find((item) => {
     return item.id === selectedSpecialtyId;
+  })?.label;
+
+  const selectedClinic = Items.clinics.find((item) => {
+    return item.id === selectedClinicId;
   })?.label;
 
   return (
@@ -63,6 +68,28 @@ const HomePage = () => {
                   key={item.id}
                   onCheckedChange={() => {
                     return setSelectedSpecialtyId(item.id);
+                  }}
+                >
+                  {item.label}
+                </DropdownMenu.CheckboxItem>
+              );
+            })}
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
+
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger className="relative flex flex-row items-center justify-between rounded-md bg-neutral-50">
+            {selectedClinic}
+            <Icons.ChevronDown />
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
+            {Items.clinics.map((item) => {
+              return (
+                <DropdownMenu.CheckboxItem
+                  checked={selectedClinicId === item.id}
+                  key={item.id}
+                  onCheckedChange={() => {
+                    return setSelectedClinicId(item.id);
                   }}
                 >
                   {item.label}
