@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { DropdownMenu, Icons, TextStack } from "@/components";
-import { Items } from "@/types/mock";
+import { ITEMS } from "@/types/mock";
 
 const HomePage = () => {
   // TODO: use react-hook-form in future task
@@ -10,15 +10,15 @@ const HomePage = () => {
   const [selectedSpecialtyId, setSelectedSpecialtyId] = useState(0);
   const [selectedClinicId, setSelectedClinicId] = useState(0);
 
-  const selectedGender = Items.genders.find((item) => {
+  const selectedGender = ITEMS.genders.find((item) => {
     return item.id === selectedGenderId;
   })?.label;
 
-  const selectedSpecialty = Items.specialties.find((item) => {
+  const selectedSpecialty = ITEMS.specialties.find((item) => {
     return item.id === selectedSpecialtyId;
   })?.label;
 
-  const selectedClinic = Items.clinics.find((item) => {
+  const selectedClinic = ITEMS.clinics.find((item) => {
     return item.id === selectedClinicId;
   })?.label;
 
@@ -35,12 +35,12 @@ const HomePage = () => {
         </TextStack.Wrapper>
 
         <DropdownMenu.Root>
-          <DropdownMenu.Trigger className="relative flex flex-row items-center justify-between rounded-md bg-neutral-50">
+          <DropdownMenu.Trigger>
             {selectedGender}
             <Icons.ChevronDown />
           </DropdownMenu.Trigger>
           <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            {Items.genders.map((item) => {
+            {ITEMS.genders.map((item) => {
               return (
                 <DropdownMenu.CheckboxItem
                   checked={selectedGenderId === item.id}
@@ -57,12 +57,12 @@ const HomePage = () => {
         </DropdownMenu.Root>
 
         <DropdownMenu.Root>
-          <DropdownMenu.Trigger className="relative flex flex-row items-center justify-between rounded-md bg-neutral-50">
+          <DropdownMenu.Trigger>
             {selectedSpecialty}
             <Icons.ChevronDown />
           </DropdownMenu.Trigger>
           <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            {Items.specialties.map((item) => {
+            {ITEMS.specialties.map((item) => {
               return (
                 <DropdownMenu.CheckboxItem
                   checked={selectedSpecialtyId === item.id}
@@ -79,12 +79,12 @@ const HomePage = () => {
         </DropdownMenu.Root>
 
         <DropdownMenu.Root>
-          <DropdownMenu.Trigger className="relative flex flex-row items-center justify-between rounded-md bg-neutral-50">
+          <DropdownMenu.Trigger>
             {selectedClinic}
             <Icons.ChevronDown />
           </DropdownMenu.Trigger>
           <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            {Items.clinics.map((item) => {
+            {ITEMS.clinics.map((item) => {
               return (
                 <DropdownMenu.CheckboxItem
                   checked={selectedClinicId === item.id}

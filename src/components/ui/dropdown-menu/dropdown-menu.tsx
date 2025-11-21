@@ -11,8 +11,7 @@ const dropdownVariants = tv({
     item: "relative flex w-full cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-base text-text-default-default",
     checkboxItem:
       "relative flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm outline-hidden focus:bg-background-default-secondary focus:text-text-default-default",
-    trigger:
-      "flex w-full border border-border-default-default px-3 py-2 text-base text-text-default-default",
+    trigger: "relative flex flex-row items-center justify-between rounded-md bg-neutral-50",
   },
 });
 

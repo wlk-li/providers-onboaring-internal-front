@@ -1,4 +1,4 @@
-export const Items = {
+export const ITEMS = {
   genders: [
     {
       id: 0,
