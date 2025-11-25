@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { DropdownMenu, Icons, Input, TextStack } from "@/components";
+import { DropdownMenu, Button, Icons, Input, TextStack } from "@/components";
 import { ITEMS } from "@/types/mock";
 
 const HomePage = () => {
@@ -100,6 +100,10 @@ const HomePage = () => {
           </DropdownMenu.Content>
         </DropdownMenu.Root>
         <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
+        <Button variant="secondary">
+          <Icons.Heart /> Favorites
+          {/* TODO: Add count */}
+        </Button>
       </div>
     </div>
   );
