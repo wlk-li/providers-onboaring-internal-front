@@ -82,7 +82,7 @@ const CheckboxItem = ({
       data-slot="dropdown-menu-checkbox-item"
       {...props}
     >
-      <span className="pointer-events-none absolute right-2 flex size-3.5 items-center justify-center">
+      <span className="pointer-events-none absolute right-2 flex items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
           <Icons.Check />
         </DropdownMenuPrimitive.ItemIndicator>

@@ -136,11 +136,11 @@ export const FilterContainer = ({ items, onSelect, selectedId }: FilterContainer
 
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger className="relative flex flex-row items-center justify-between rounded-md bg-neutral-50">
+      <DropdownMenu.Trigger className="relative flex size-full flex-row items-center justify-between rounded-md bg-neutral-50">
         {selectedLabel}
         <Icons.ChevronDown />
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content>
+      <DropdownMenu.Content className="w-[var(--radix-dropdown-menu-trigger-width)]">
         {items.map((item) => {
           return (
             <DropdownMenu.CheckboxItem
