@@ -12,7 +12,7 @@ const dropdownVariants = tv({
     checkboxItem:
       "relative flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm outline-hidden focus:bg-background-default-secondary focus:text-text-default-default",
     trigger:
-      "relative flex flex-row items-center justify-between rounded-md border border-border-default-default bg-neutral-50 px-3 py-2",
+      "relative flex flex-row items-center justify-between rounded-md border border-border-default-default bg-neutral-50 px-3 py-3",
   },
 });
 
@@ -82,7 +82,7 @@ const CheckboxItem = ({
       data-slot="dropdown-menu-checkbox-item"
       {...props}
     >
-      <span className="pointer-events-none absolute right-2 flex size-3.5 items-center justify-center">
+      <span className="pointer-events-none absolute right-2 flex items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
           <Icons.Check />
         </DropdownMenuPrimitive.ItemIndicator>
