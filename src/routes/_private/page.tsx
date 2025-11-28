@@ -77,7 +77,7 @@ const HomePage = () => {
                 moreCount={2}
               />
 
-              <Button className="w-full" variant="primary">
+              <Button className="w-full py-2" variant="primary">
                 View details
               </Button>
             </div>
