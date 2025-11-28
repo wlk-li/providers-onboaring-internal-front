@@ -12,7 +12,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
-      <div className="mx-auto w-full max-w-7xl flex-col">
+      <div className="mx-auto w-full max-w-6xl flex-col">
         <div className="flex flex-col gap-2">
           <div className="flex h-21 w-full items-center justify-between">
             <TextStack.Wrapper>
@@ -51,7 +51,7 @@ const HomePage = () => {
                   selectedId={selectedClinicId}
                 />
 
-                <Button className="w-full max-w-30 py-3 md:w-auto" variant="secondary">
+                <Button className="w-full py-3 md:max-w-30" variant="secondary">
                   <Icons.Heart /> Favorites
                 </Button>
               </div>
