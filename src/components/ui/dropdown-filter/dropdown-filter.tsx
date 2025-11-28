@@ -20,7 +20,7 @@ export const DropdownFilter = ({ items, onSelect, selectedId }: DropdownFilterPr
 
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger className="relative flex size-full max-w-57 flex-row items-center justify-between rounded-md bg-neutral-50">
+      <DropdownMenu.Trigger className="relative flex size-full flex-row items-center justify-between rounded-md bg-neutral-50 md:max-w-57">
         {selectedLabel}
         <Icons.ChevronDown />
       </DropdownMenu.Trigger>
