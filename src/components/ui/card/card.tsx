@@ -8,7 +8,7 @@ const cardVariants = tv({
   slots: {
     root: "flex flex-col gap-5 overflow-hidden rounded-xl border border-border-default-default bg-background-default-default text-text-default-default shadow-sm",
     avatar: "h-40 w-full object-cover",
-    location: "relative flex flex-row items-start gap-2",
+    location: "flex items-start",
     cardIcon: "pointer-events-none font-extralight text-text-default-default",
   },
 });

@@ -57,33 +57,33 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+
+          <Card.Root className="w-full max-w-86">
+            <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
+
+            <div className="flex flex-col gap-5 p-5">
+              <TextStack.Wrapper>
+                <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
+                  Dr. Pearson Person
+                </TextStack.Text>
+
+                <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
+                  Cardiology
+                </TextStack.Subtext>
+              </TextStack.Wrapper>
+              <Card.Location
+                icon={<Icons.Location />}
+                locationName="Metropolitan Medical Center"
+                moreCount={2}
+              />
+
+              <Button className="w-full" variant="primary">
+                View details
+              </Button>
+            </div>
+          </Card.Root>
         </div>
       </div>
-
-      <Card.Root className="w-full max-w-86">
-        <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
-
-        <div className="flex flex-col gap-5 p-5">
-          <TextStack.Wrapper>
-            <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-              Dr. Pearson Person
-            </TextStack.Text>
-
-            <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-              Cardiology
-            </TextStack.Subtext>
-          </TextStack.Wrapper>
-          <Card.Location
-            icon={<Icons.Location />}
-            locationName="Metropolitan Medical Center"
-            moreCount={2}
-          />
-
-          <Button className="w-full" variant="primary">
-            View details
-          </Button>
-        </div>
-      </Card.Root>
     </div>
   );
 };
