@@ -60,31 +60,30 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-6xl">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card.Root className="w-86">
-            <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
-            <Card.Header>
-              <TextStack.Wrapper>
-                <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-                  Dr. Pearson Person
-                </TextStack.Text>
-                <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                  Cardiology
-                </TextStack.Subtext>
-              </TextStack.Wrapper>
-              <Card.Location
-                icon={<Icons.Location />}
-                locationName="Metropolitan Medical Center"
-                moreCount={2}
-              />
-            </Card.Header>
-            <Card.Footer>
-              <Button variant="primary">View details</Button>
-            </Card.Footer>
-          </Card.Root>
+      <Card.Root className="w-full max-w-86">
+        <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
+
+        <div className="flex flex-col gap-5 p-5">
+          <TextStack.Wrapper>
+            <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
+              Dr. Pearson Person
+            </TextStack.Text>
+
+            <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
+              Cardiology
+            </TextStack.Subtext>
+          </TextStack.Wrapper>
+          <Card.Location
+            icon={<Icons.Location />}
+            locationName="Metropolitan Medical Center"
+            moreCount={2}
+          />
+
+          <Button className="w-full" variant="primary">
+            View details
+          </Button>
         </div>
-      </div>
+      </Card.Root>
     </div>
   );
 };

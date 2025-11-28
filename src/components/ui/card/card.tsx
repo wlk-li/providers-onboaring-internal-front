@@ -6,17 +6,14 @@ import { IconWrapper } from "../icons";
 
 const cardVariants = tv({
   slots: {
-    root: "flex flex-col overflow-hidden rounded-xl border border-border-default-default bg-background-default-default text-text-default-default shadow-sm",
+    root: "flex flex-col gap-5 overflow-hidden rounded-xl border border-border-default-default bg-background-default-default text-text-default-default shadow-sm",
     avatar: "h-40 w-full object-cover",
-    header:
-      "grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 pt-6 has-[data-slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-    location: "relative flex flex-row items-center gap-2",
+    location: "relative flex flex-row items-start gap-2",
     cardIcon: "pointer-events-none font-extralight text-text-default-default",
-    footer: "flex items-center gap-3 px-6 pt-6 pb-6",
   },
 });
 
-const { avatar, cardIcon, footer, header, location, root } = cardVariants();
+const { avatar, cardIcon, location, root } = cardVariants();
 
 const Root = ({ className, ...props }: ComponentProps<"div">) => {
   return <div className={root({ className })} data-slot="card" {...props} />;
@@ -33,14 +30,10 @@ const Avatar = ({
   );
 };
 
-const Header = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={header({ className })} data-slot="card-header" {...props} />;
-};
-
 const Location = ({
   className,
   icon,
-  iconSize = SIZE.MEDIUM,
+  iconSize = SIZE.LARGE,
   locationName,
   moreCount,
   ...props
@@ -67,14 +60,8 @@ const Location = ({
   );
 };
 
-const Footer = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={footer({ className })} data-slot="card-footer" {...props} />;
-};
-
 export const Card = {
   Root,
   Avatar,
-  Header,
   Location,
-  Footer,
 };
