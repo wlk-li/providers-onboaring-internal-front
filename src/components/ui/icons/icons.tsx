@@ -12,6 +12,7 @@ const AVAILABLE_ICONIFY_ICONS = {
   ChevronDown: "chevron-down",
   Search: "search",
   Heart: "heart",
+  Location: "map-pin",
 };
 
 export const initializeIcons = () => {
