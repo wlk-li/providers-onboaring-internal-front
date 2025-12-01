@@ -58,8 +58,8 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-4">
-            <Card.Root className="w-full max-w-86">
+          <div className="grid gap-6 md:grid-cols-3">
+            <Card.Root className="w-full">
               <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
 
               <div className="flex flex-col gap-5 p-5">
@@ -84,7 +84,7 @@ const HomePage = () => {
               </div>
             </Card.Root>
 
-            <Card.Root className="w-full max-w-86">
+            <Card.Root className="w-full">
               <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
 
               <div className="flex flex-col gap-5 p-5">
@@ -109,7 +109,7 @@ const HomePage = () => {
               </div>
             </Card.Root>
 
-            <Card.Root className="w-full max-w-86">
+            <Card.Root className="w-full">
               <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
 
               <div className="flex flex-col gap-5 p-5">
@@ -134,7 +134,7 @@ const HomePage = () => {
               </div>
             </Card.Root>
 
-            <Card.Root className="w-full max-w-86">
+            <Card.Root className="w-full">
               <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
 
               <div className="flex flex-col gap-5 p-5">
