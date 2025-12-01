@@ -25,139 +25,157 @@ const HomePage = () => {
             </TextStack.Wrapper>
           </div>
 
-          <div className="flex w-full flex-col gap-4">
-            <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
+          <div className="flex flex-col gap-7">
+            <div className="flex w-full flex-col gap-4">
+              <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
 
-            <div className="flex justify-between">
-              <div className="flex w-full flex-col gap-4 md:flex-row">
-                <DropdownFilter
-                  items={ITEMS.genders}
-                  label="Gender"
-                  onSelect={setSelectedGenderId}
-                  selectedId={selectedGenderId}
-                />
+              <div className="flex justify-between">
+                <div className="flex w-full flex-col gap-4 md:flex-row">
+                  <DropdownFilter
+                    items={ITEMS.genders}
+                    label="Gender"
+                    onSelect={setSelectedGenderId}
+                    selectedId={selectedGenderId}
+                  />
 
-                <DropdownFilter
-                  items={ITEMS.specialties}
-                  label="Specialty"
-                  onSelect={setSelectedSpecialtyId}
-                  selectedId={selectedSpecialtyId}
-                />
+                  <DropdownFilter
+                    items={ITEMS.specialties}
+                    label="Specialty"
+                    onSelect={setSelectedSpecialtyId}
+                    selectedId={selectedSpecialtyId}
+                  />
 
-                <DropdownFilter
-                  items={ITEMS.clinics}
-                  label="Clinic"
-                  onSelect={setSelectedClinicId}
-                  selectedId={selectedClinicId}
-                />
+                  <DropdownFilter
+                    items={ITEMS.clinics}
+                    label="Clinic"
+                    onSelect={setSelectedClinicId}
+                    selectedId={selectedClinicId}
+                  />
 
-                <Button className="w-full py-3 md:max-w-30" variant="secondary">
-                  <Icons.Heart /> Favorites
-                </Button>
+                  <Button className="w-full py-3 md:max-w-30" variant="secondary">
+                    <Icons.Heart /> Favorites
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card.Root className="w-full">
-              <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
+            <div className="flex flex-col gap-3">
+              <span>6 providers</span>
 
-              <div className="flex flex-col gap-5 p-5">
-                <TextStack.Wrapper>
-                  <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-                    Dr. Pearson Person
-                  </TextStack.Text>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <Card.Root className="w-full">
+                  <Card.Avatar
+                    alt="Provider name"
+                    src="https://robohash.org/person.png?size=200x200"
+                  />
 
-                  <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                    Cardiology
-                  </TextStack.Subtext>
-                </TextStack.Wrapper>
-                <Card.Location
-                  icon={<Icons.Location />}
-                  locationName="Metropolitan Medical Center"
-                  moreCount={2}
-                />
+                  <div className="flex flex-col gap-5 p-5">
+                    <TextStack.Wrapper>
+                      <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
+                        Dr. Pearson Person
+                      </TextStack.Text>
 
-                <Button className="w-full py-2" variant="primary">
-                  View details
-                </Button>
+                      <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
+                        Cardiology
+                      </TextStack.Subtext>
+                    </TextStack.Wrapper>
+                    <Card.Location
+                      icon={<Icons.Location />}
+                      locationName="Metropolitan Medical Center"
+                      moreCount={2}
+                    />
+
+                    <Button className="w-full py-2" variant="primary">
+                      View details
+                    </Button>
+                  </div>
+                </Card.Root>
+
+                <Card.Root className="w-full">
+                  <Card.Avatar
+                    alt="Provider name"
+                    src="https://robohash.org/person.png?size=200x200"
+                  />
+
+                  <div className="flex flex-col gap-5 p-5">
+                    <TextStack.Wrapper>
+                      <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
+                        Dr. Pearson Person
+                      </TextStack.Text>
+
+                      <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
+                        Neurology
+                      </TextStack.Subtext>
+                    </TextStack.Wrapper>
+                    <Card.Location
+                      icon={<Icons.Location />}
+                      locationName="Metropolitan Medical Center"
+                      moreCount={2}
+                    />
+
+                    <Button className="w-full py-2" variant="primary">
+                      View details
+                    </Button>
+                  </div>
+                </Card.Root>
+
+                <Card.Root className="w-full">
+                  <Card.Avatar
+                    alt="Provider name"
+                    src="https://robohash.org/person.png?size=200x200"
+                  />
+
+                  <div className="flex flex-col gap-5 p-5">
+                    <TextStack.Wrapper>
+                      <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
+                        Dr. Pearson Person
+                      </TextStack.Text>
+
+                      <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
+                        Pediatrics
+                      </TextStack.Subtext>
+                    </TextStack.Wrapper>
+                    <Card.Location
+                      icon={<Icons.Location />}
+                      locationName="Metropolitan Medical Center"
+                      moreCount={2}
+                    />
+
+                    <Button className="w-full py-2" variant="primary">
+                      View details
+                    </Button>
+                  </div>
+                </Card.Root>
+
+                <Card.Root className="w-full">
+                  <Card.Avatar
+                    alt="Provider name"
+                    src="https://robohash.org/person.png?size=200x200"
+                  />
+
+                  <div className="flex flex-col gap-5 p-5">
+                    <TextStack.Wrapper>
+                      <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
+                        Dr. Pearson Person
+                      </TextStack.Text>
+
+                      <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
+                        Dermatology
+                      </TextStack.Subtext>
+                    </TextStack.Wrapper>
+                    <Card.Location
+                      icon={<Icons.Location />}
+                      locationName="Metropolitan Medical Center"
+                      moreCount={2}
+                    />
+
+                    <Button className="w-full py-2" variant="primary">
+                      View details
+                    </Button>
+                  </div>
+                </Card.Root>
               </div>
-            </Card.Root>
-
-            <Card.Root className="w-full">
-              <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
-
-              <div className="flex flex-col gap-5 p-5">
-                <TextStack.Wrapper>
-                  <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-                    Dr. Pearson Person
-                  </TextStack.Text>
-
-                  <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                    Neurology
-                  </TextStack.Subtext>
-                </TextStack.Wrapper>
-                <Card.Location
-                  icon={<Icons.Location />}
-                  locationName="Metropolitan Medical Center"
-                  moreCount={2}
-                />
-
-                <Button className="w-full py-2" variant="primary">
-                  View details
-                </Button>
-              </div>
-            </Card.Root>
-
-            <Card.Root className="w-full">
-              <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
-
-              <div className="flex flex-col gap-5 p-5">
-                <TextStack.Wrapper>
-                  <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-                    Dr. Pearson Person
-                  </TextStack.Text>
-
-                  <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                    Pediatrics
-                  </TextStack.Subtext>
-                </TextStack.Wrapper>
-                <Card.Location
-                  icon={<Icons.Location />}
-                  locationName="Metropolitan Medical Center"
-                  moreCount={2}
-                />
-
-                <Button className="w-full py-2" variant="primary">
-                  View details
-                </Button>
-              </div>
-            </Card.Root>
-
-            <Card.Root className="w-full">
-              <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
-
-              <div className="flex flex-col gap-5 p-5">
-                <TextStack.Wrapper>
-                  <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-                    Dr. Pearson Person
-                  </TextStack.Text>
-
-                  <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                    Dermatology
-                  </TextStack.Subtext>
-                </TextStack.Wrapper>
-                <Card.Location
-                  icon={<Icons.Location />}
-                  locationName="Metropolitan Medical Center"
-                  moreCount={2}
-                />
-
-                <Button className="w-full py-2" variant="primary">
-                  View details
-                </Button>
-              </div>
-            </Card.Root>
+            </div>
           </div>
         </div>
       </div>
