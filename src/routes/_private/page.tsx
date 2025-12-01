@@ -58,7 +58,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card.Root className="w-full">
               <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
 
