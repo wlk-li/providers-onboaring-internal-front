@@ -1,2 +1,3 @@
-// TODO: Add here any constant you may need for example filters
-export {};
+export const USER_FILTER_KEYS = {
+  EMAIL: "email",
+} as const;
