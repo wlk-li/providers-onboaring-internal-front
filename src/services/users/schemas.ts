@@ -1,11 +1,12 @@
 import { z } from "zod";
 
+import type { User } from "./types";
+
 export const userSchema = z.object({
   id: z.number(),
   name: z.string(),
   emailAddress: z.string().email(),
 });
-export type User = z.infer<typeof userSchema>;
 
 export const userApiSchema = z
   .object({
