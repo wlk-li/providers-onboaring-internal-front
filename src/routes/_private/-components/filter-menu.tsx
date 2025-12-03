@@ -12,33 +12,31 @@ export const FilterMenu = () => {
     <div className="flex w-full flex-col gap-4">
       <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
 
-      <div className="flex justify-between">
-        <div className="flex w-full flex-col gap-4 md:flex-row">
-          <DropdownFilter
-            items={ITEMS.genders}
-            label="Gender"
-            onSelect={setSelectedGenderId}
-            selectedId={selectedGenderId}
-          />
+      <div className="flex w-full flex-col gap-4 md:flex-row">
+        <DropdownFilter
+          items={ITEMS.genders}
+          label="Gender"
+          onSelect={setSelectedGenderId}
+          selectedId={selectedGenderId}
+        />
 
-          <DropdownFilter
-            items={ITEMS.specialties}
-            label="Specialty"
-            onSelect={setSelectedSpecialtyId}
-            selectedId={selectedSpecialtyId}
-          />
+        <DropdownFilter
+          items={ITEMS.specialties}
+          label="Specialty"
+          onSelect={setSelectedSpecialtyId}
+          selectedId={selectedSpecialtyId}
+        />
 
-          <DropdownFilter
-            items={ITEMS.clinics}
-            label="Clinic"
-            onSelect={setSelectedClinicId}
-            selectedId={selectedClinicId}
-          />
+        <DropdownFilter
+          items={ITEMS.clinics}
+          label="Clinic"
+          onSelect={setSelectedClinicId}
+          selectedId={selectedClinicId}
+        />
 
-          <Button className="w-full py-3 md:max-w-30" variant="secondary">
-            <Icons.Heart /> Favorites
-          </Button>
-        </div>
+        <Button className="w-full py-3 md:max-w-30" variant="secondary">
+          <Icons.Heart /> Favorites
+        </Button>
       </div>
     </div>
   );
