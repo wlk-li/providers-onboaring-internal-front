@@ -1,30 +1,13 @@
 import { publicApi } from "@/config/api";
 import { parsePaginatedResponse } from "@/services/schemas";
 import { providerSchema, providersListSchema } from "./schemas";
-import type { Provider, ProviderFilters, ProviderRequestParams } from "./types";
-
-const buildFilterParams = (
-  filter?: ProviderFilters,
-): Record<`filter[${string}]`, string | number | boolean> => {
-  if (!filter) {
-    return {};
-  }
-
-  const params: Record<`filter[${string}]`, string | number | boolean> = {};
-  Object.entries(filter).forEach(([key, value]) => {
-    if (value !== undefined && value !== null) {
-      params[`filter[${key}]`] = value;
-    }
-  });
-
-  return params;
-};
+import type { Provider, ProviderRequestParams } from "./types";
 
 export const getProvidersList = async ({ filter, page }: ProviderRequestParams = {}) => {
   const response = await publicApi.get("providers", {
     params: {
       page,
-      ...buildFilterParams(filter),
+      filter,
     },
   });
 
@@ -34,11 +17,19 @@ export const getProvidersList = async ({ filter, page }: ProviderRequestParams =
 export const getProvider = async (id: Provider["id"]) => {
   const response = await publicApi.get(`providers/${id}`);
 
-  return providerSchema.parse(response.data);
-};
+  console.log("Raw API response:", response);
+  console.log("Response.data:", response.data);
 
-export const getAllProviders = async () => {
-  const response = await publicApi.get("providers");
+  try {
+    const parsed = providerSchema.parse(response.data?.data);
+    console.log("Parsed data:", parsed);
 
-  return parsePaginatedResponse(providersListSchema, response.data);
+    return parsed;
+  } catch (error) {
+    console.error("Zod parsing error:", error);
+    if (error instanceof z.ZodError) {
+      console.error("Validation errors:", error.errors);
+    }
+    throw error; // Re-throw to maintain React Query error handling
+  }
 };
