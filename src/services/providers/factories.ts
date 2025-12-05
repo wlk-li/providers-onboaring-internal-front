@@ -1,6 +1,6 @@
 import { createQueryKeys } from "@lukemorales/query-key-factory";
 
-import { getAllProviders, getProvider, getProvidersList } from "./api";
+import { getProvider, getProvidersList } from "./api";
 
 export const queries = createQueryKeys("providers", {
   list: (params?: Parameters<typeof getProvidersList>[0]) => {
@@ -16,14 +16,6 @@ export const queries = createQueryKeys("providers", {
       queryKey: [id],
       queryFn: () => {
         return getProvider(id);
-      },
-    };
-  },
-  all: () => {
-    return {
-      queryKey: ["/"],
-      queryFn: () => {
-        return getAllProviders();
       },
     };
   },

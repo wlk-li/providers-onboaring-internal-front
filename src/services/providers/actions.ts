@@ -21,7 +21,3 @@ export const useProviderDetailQuery = (
     ...props,
   });
 };
-
-export const useAllProvidersQuery = (props?: UseQueryProps<typeof queries.all>) => {
-  return useQuery({ ...queries.all(), ...props });
-};

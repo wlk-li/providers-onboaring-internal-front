@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { TextStack } from "@/components";
 import { CardsLayout } from "./-components/cards-layout";
 import { FilterMenu } from "./-components/filter-menu";
+import { QueryTest } from "./-components/q";
 
 const HomePage = () => {
   return (
@@ -28,6 +29,7 @@ const HomePage = () => {
 
               <CardsLayout />
             </div>
+            <QueryTest />
           </div>
         </div>
       </div>

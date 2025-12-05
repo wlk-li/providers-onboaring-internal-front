@@ -3,4 +3,4 @@ export const PROVIDERS_FILTER_KEYS = {
   CLINIC_ID: "clinic_id",
   GENDER: "gender",
   FAVORITED: "favorited",
-};
+} as const;
