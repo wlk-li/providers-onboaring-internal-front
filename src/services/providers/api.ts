@@ -20,16 +20,8 @@ export const getProvider = async (id: Provider["id"]) => {
   console.log("Raw API response:", response);
   console.log("Response.data:", response.data);
 
-  try {
-    const parsed = providerSchema.parse(response.data?.data);
-    console.log("Parsed data:", parsed);
+  const parsed = providerSchema.parse(response.data?.data);
+  console.log("Parsed data:", parsed);
 
-    return parsed;
-  } catch (error) {
-    console.error("Zod parsing error:", error);
-    if (error instanceof z.ZodError) {
-      console.error("Validation errors:", error.errors);
-    }
-    throw error; // Re-throw to maintain React Query error handling
-  }
+  return parsed;
 };

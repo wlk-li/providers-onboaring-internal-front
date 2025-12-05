@@ -6,8 +6,6 @@ export const QueryTest = () => {
 
   if (isLoading) {
     return <div>Loading...</div>;
-  } else {
-    console.log(data);
   }
 
   return <div>{data?.name}</div>;
