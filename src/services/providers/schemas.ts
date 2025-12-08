@@ -5,16 +5,15 @@ export const specialtySchema = z.object({
   name: z.string(),
 });
 
-export const clinicSchema = z.array(
-  z.object({
-    id: z.number(),
-    name: z.string(),
-    // address: z.string(),
-    // state: z.string().length(2),
-    // zipCode: z.string(),
-    // phone: z.string(),
-  }),
-);
+export const clinicSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  address: z.string(),
+  city: z.string(),
+  state: z.string(),
+  zipCode: z.string(),
+  phone: z.string(),
+});
 
 export const providerSchema = z.object({
   id: z.number(),
@@ -26,7 +25,7 @@ export const providerSchema = z.object({
   languages: z.array(z.string()),
   profilePic: z.url(),
   specialty: specialtySchema,
-  clinic: clinicSchema,
+  clinics: z.array(clinicSchema),
   isFavorited: z.boolean(),
 });
 
