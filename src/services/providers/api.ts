@@ -17,7 +17,7 @@ export const getProvidersList = async ({ filter, page }: ProviderRequestParams =
 export const getProvider = async (id: Provider["id"]) => {
   const response = await publicApi.get(`providers/${id}`);
 
-  const parsed = providerSchema.parse(response.data?.data);
+  const parsed = providerSchema.parse(response.data.data);
 
   return parsed;
 };
