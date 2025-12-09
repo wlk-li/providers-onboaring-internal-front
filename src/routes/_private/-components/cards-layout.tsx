@@ -2,12 +2,12 @@ import { Button, Card, Icons, TextStack } from "@/components";
 import type { Provider } from "@/services/providers/types";
 
 type CardsLayoutProps = {
-  providers: Provider[];
+  providers?: Provider[];
   onViewDetails?: (provider: Provider) => void;
 };
 
 export const CardsLayout = ({ onViewDetails, providers }: CardsLayoutProps) => {
-  if (!providers || providers.length === 0) {
+  if (!providers) {
     return (
       <div className="flex items-center justify-center py-12 text-gray-500">No providers found</div>
     );
@@ -20,11 +20,8 @@ export const CardsLayout = ({ onViewDetails, providers }: CardsLayoutProps) => {
         const additionalClinicsCount = (provider.clinics?.length || 0) - 1;
 
         return (
-          <Card.Root className="w-full" key={provider.id}>
-            <Card.Avatar
-              alt={provider.name}
-              src={provider.profilePic || `https://robohash.org/${provider.name}.png?size=200x200`}
-            />
+          <Card.Root key={provider.id}>
+            <Card.Avatar alt={provider.name} src={provider.profilePic} />
 
             <div className="flex flex-col gap-5 p-5">
               <TextStack.Wrapper>
@@ -33,7 +30,7 @@ export const CardsLayout = ({ onViewDetails, providers }: CardsLayoutProps) => {
                 </TextStack.Text>
 
                 <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                  {provider.specialty?.name || "General Practice"}
+                  {provider.specialty?.name}
                 </TextStack.Subtext>
               </TextStack.Wrapper>
 

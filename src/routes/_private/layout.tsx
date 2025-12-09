@@ -1,16 +1,8 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 import { Header } from "./-components";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5,
-      retry: 1,
-    },
-  },
-});
+// import { QueryClientProvider } from "@tanstack/react-query";
+// import { queryClient } from "@/config/query-client";
 
 const PrivateLayout = () => {
   return (
@@ -18,9 +10,9 @@ const PrivateLayout = () => {
       <Header />
 
       <main className="flex flex-col gap-4 p-4">
-        <QueryClientProvider client={queryClient}>
-          <Outlet />
-        </QueryClientProvider>
+        {/* <QueryClientProvider client={queryClient}> */}
+        <Outlet />
+        {/* </QueryClientProvider> */}
       </main>
     </div>
   );

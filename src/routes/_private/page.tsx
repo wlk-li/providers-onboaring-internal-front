@@ -6,9 +6,7 @@ import { CardsLayout } from "./-components/cards-layout";
 import { FilterMenu } from "./-components/filter-menu";
 
 const HomePage = () => {
-  const { data } = useProvidersListQuery();
-
-  const providers = data?.data || [];
+  const { data: providers } = useProvidersListQuery();
 
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
@@ -30,10 +28,10 @@ const HomePage = () => {
 
             <div className="flex flex-col gap-3">
               <span>
-                {providers.length} provider{providers.length !== 1 ? "s" : ""}
+                {providers?.data.length} provider{providers?.data.length !== 1 ? "s" : ""}
               </span>
 
-              <CardsLayout providers={providers} />
+              <CardsLayout providers={providers?.data} />
             </div>
           </div>
         </div>

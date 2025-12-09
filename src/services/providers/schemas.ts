@@ -30,10 +30,3 @@ export const providerSchema = z.object({
 });
 
 export const providersListSchema = z.array(providerSchema);
-
-// export const providerFiltersSchema = z.object({
-//   specialty_id: z.number().optional(),
-//   gender: z.enum(["male", "female", "other"]).optional(),
-//   clinic_id: z.number().optional(),
-//   favorited: z.boolean().optional(),
-// });
