@@ -8,6 +8,10 @@ import { FilterMenu } from "./-components/filter-menu";
 const HomePage = () => {
   const { data: providers } = useProvidersListQuery();
 
+  const providersQuantity = providers?.data.length;
+  const providersLabel =
+    providersQuantity !== 1 ? providersQuantity + " providers" : providersQuantity + " provider";
+
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
       <div className="mx-auto w-full max-w-6xl flex-col">
@@ -27,9 +31,7 @@ const HomePage = () => {
             <FilterMenu />
 
             <div className="flex flex-col gap-3">
-              <span>
-                {providers?.data.length} provider{providers?.data.length !== 1 ? "s" : ""}
-              </span>
+              <span>{providersLabel}</span>
 
               <CardsLayout providers={providers?.data} />
             </div>
