@@ -4,17 +4,29 @@ import { Button, DropdownFilter, Icons, Input } from "@/components";
 import { ITEMS } from "@/types/mock";
 
 export const FilterMenu = () => {
-  const { control } = useForm({
+  const { control, setValue, watch } = useForm({
     defaultValues: {
+      search: "",
       gender: 0,
       specialtyId: 0,
       clinicId: 0,
+      favorited: false,
     },
   });
 
+  const favorited = watch("favorited");
+
   return (
     <div className="flex w-full flex-col gap-4">
-      <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
+      <Controller
+        control={control}
+        name="search"
+        render={({ field }) => {
+          return (
+            <Input {...field} left={<Icons.Search />} placeholder="Search healthcare providers" />
+          );
+        }}
+      />
 
       <div className="flex justify-between">
         <div className="flex w-full flex-col gap-4 md:flex-row">
@@ -62,8 +74,13 @@ export const FilterMenu = () => {
               );
             }}
           />
-
-          <Button className="w-full py-3 md:max-w-30" variant="secondary">
+          <Button
+            className="w-full py-3 md:max-w-30"
+            onClick={() => {
+              return setValue("favorited", !favorited);
+            }}
+            variant={favorited ? "primary" : "secondary"}
+          >
             <Icons.Heart /> Favorites
           </Button>
         </div>
