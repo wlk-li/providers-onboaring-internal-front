@@ -1,13 +1,16 @@
 import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button, DropdownFilter, Icons, Input } from "@/components";
+import { providerFiltersSchema } from "@/services/providers/schemas";
+import type { ProviderFilters } from "@/services/providers/types";
 import { ITEMS } from "@/types/mock";
 
 export const FilterMenu = () => {
-  const { control, setValue, watch } = useForm({
+  const { control, setValue, watch } = useForm<ProviderFilters>({
+    resolver: zodResolver(providerFiltersSchema),
     defaultValues: {
       search: "",
-      gender: 0,
       specialtyId: 0,
       clinicId: 0,
       favorited: false,
