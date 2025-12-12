@@ -1,15 +1,10 @@
-import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Button, Card, DropdownFilter, Icons, Input, TextStack } from "@/components";
-import { ITEMS } from "@/types/mock";
+import { TextStack } from "@/components";
+import { CardsLayout } from "./-components/cards-layout";
+import { FilterMenu } from "./-components/filter-menu";
 
 const HomePage = () => {
-  // TODO: use react-hook-form in future task
-  const [selectedGenderId, setSelectedGenderId] = useState(0);
-  const [selectedSpecialtyId, setSelectedSpecialtyId] = useState(0);
-  const [selectedClinicId, setSelectedClinicId] = useState(0);
-
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
       <div className="mx-auto w-full max-w-6xl flex-col">
@@ -25,63 +20,15 @@ const HomePage = () => {
             </TextStack.Wrapper>
           </div>
 
-          <div className="flex w-full flex-col gap-4">
-            <Input left={<Icons.Search />} placeholder="Search healthcare providers" />
+          <div className="flex flex-col gap-7">
+            <FilterMenu />
 
-            <div className="flex justify-between">
-              <div className="flex w-full flex-col gap-4 md:flex-row">
-                <DropdownFilter
-                  items={ITEMS.genders}
-                  label="Gender"
-                  onSelect={setSelectedGenderId}
-                  selectedId={selectedGenderId}
-                />
+            <div className="flex flex-col gap-3">
+              <span>6 providers</span>
 
-                <DropdownFilter
-                  items={ITEMS.specialties}
-                  label="Specialty"
-                  onSelect={setSelectedSpecialtyId}
-                  selectedId={selectedSpecialtyId}
-                />
-
-                <DropdownFilter
-                  items={ITEMS.clinics}
-                  label="Clinic"
-                  onSelect={setSelectedClinicId}
-                  selectedId={selectedClinicId}
-                />
-
-                <Button className="w-full py-3 md:w-auto" variant="secondary">
-                  <Icons.Heart /> Favorites
-                </Button>
-              </div>
+              <CardsLayout />
             </div>
           </div>
-
-          <Card.Root className="w-full max-w-86">
-            <Card.Avatar alt="Provider name" src="https://robohash.org/person.png?size=200x200" />
-
-            <div className="flex flex-col gap-5 p-5">
-              <TextStack.Wrapper>
-                <TextStack.Text className="text-2xl text-text-brand-on-brand-secondary">
-                  Dr. Pearson Person
-                </TextStack.Text>
-
-                <TextStack.Subtext className="text-lg text-text-brand-on-brand-secondary">
-                  Cardiology
-                </TextStack.Subtext>
-              </TextStack.Wrapper>
-              <Card.Location
-                icon={<Icons.Location />}
-                locationName="Metropolitan Medical Center"
-                moreCount={2}
-              />
-
-              <Button className="w-full py-2" variant="primary">
-                View details
-              </Button>
-            </div>
-          </Card.Root>
         </div>
       </div>
     </div>
