@@ -1,10 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { TextStack } from "@/components";
+import { useProvidersListQuery } from "@/services/providers/actions";
 import { CardsLayout } from "./-components/cards-layout";
 import { FilterMenu } from "./-components/filter-menu";
 
 const HomePage = () => {
+  const { data: providers } = useProvidersListQuery();
+
+  const providersQuantity = providers?.data.length;
+  const providersLabel =
+    providersQuantity !== 1 ? providersQuantity + " providers" : providersQuantity + " provider";
+
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
       <div className="mx-auto w-full max-w-6xl flex-col">
@@ -24,9 +31,9 @@ const HomePage = () => {
             <FilterMenu />
 
             <div className="flex flex-col gap-3">
-              <span>6 providers</span>
+              <span>{providersLabel}</span>
 
-              <CardsLayout />
+              <CardsLayout providers={providers?.data} />
             </div>
           </div>
         </div>
