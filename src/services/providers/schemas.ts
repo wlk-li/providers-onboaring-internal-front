@@ -34,9 +34,9 @@ export const providerSchema = z.object({
 export const providersListSchema = z.array(providerSchema);
 
 export const providerFiltersSchema = z.object({
-  search: z.string(),
-  specialtyId: z.number(),
+  search: z.string().optional(),
+  specialtyId: z.number().optional(),
   gender: z.enum(GENDER_FILTER).optional(),
-  clinicId: z.number(),
-  favorited: z.boolean(),
+  clinicId: z.number().optional(),
+  favorited: z.boolean().optional(),
 });

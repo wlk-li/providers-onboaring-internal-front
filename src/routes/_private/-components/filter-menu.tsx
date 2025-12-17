@@ -1,24 +1,14 @@
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { type Control, Controller } from "react-hook-form";
 
 import { Button, DropdownFilter, Icons, Input } from "@/components";
-import { providerFiltersSchema } from "@/services/providers/schemas";
 import type { ProviderFilters } from "@/services/providers/types";
 import { ITEMS } from "@/types/mock";
 
-export const FilterMenu = () => {
-  const { control, setValue, watch } = useForm<ProviderFilters>({
-    resolver: zodResolver(providerFiltersSchema),
-    defaultValues: {
-      search: "",
-      specialtyId: 0,
-      clinicId: 0,
-      favorited: false,
-    },
-  });
+type FilterMenuProps = {
+  control: Control<ProviderFilters>;
+};
 
-  const favorited = watch("favorited");
-
+export const FilterMenu = ({ control }: FilterMenuProps) => {
   return (
     <div className="flex w-full flex-col gap-4">
       <Controller
@@ -77,15 +67,23 @@ export const FilterMenu = () => {
               );
             }}
           />
-          <Button
-            className="w-full py-3 md:max-w-30"
-            onClick={() => {
-              return setValue("favorited", !favorited);
+          <Controller
+            control={control}
+            name="favorited"
+            render={({ field }) => {
+              return (
+                <Button
+                  className="w-full py-3 md:max-w-30"
+                  onClick={() => {
+                    return field.onChange("favorited", !field.value);
+                  }}
+                  variant={field.value ? "primary" : "secondary"}
+                >
+                  <Icons.Heart /> Favorites
+                </Button>
+              );
             }}
-            variant={favorited ? "primary" : "secondary"}
-          >
-            <Icons.Heart /> Favorites
-          </Button>
+          />
         </div>
       </div>
     </div>

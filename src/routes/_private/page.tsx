@@ -1,12 +1,20 @@
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { TextStack } from "@/components";
+import { type ProviderFilters, providerFiltersSchema } from "@/services/providers";
 import { useProvidersListQuery } from "@/services/providers/actions";
 import { CardsLayout } from "./-components/cards-layout";
 import { FilterMenu } from "./-components/filter-menu";
 
 const HomePage = () => {
-  const { data: providers } = useProvidersListQuery();
+  const { control, watch } = useForm<ProviderFilters>({
+    resolver: zodResolver(providerFiltersSchema),
+  });
+
+  const filter = watch();
+  const { data: providers } = useProvidersListQuery({ filter });
 
   const providersQuantity = providers?.data.length;
   const providersLabel =
@@ -28,7 +36,7 @@ const HomePage = () => {
           </div>
 
           <div className="flex flex-col gap-7">
-            <FilterMenu />
+            <FilterMenu control={control} />
 
             <div className="flex flex-col gap-3">
               <span>{providersLabel}</span>

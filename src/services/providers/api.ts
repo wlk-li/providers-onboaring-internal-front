@@ -1,3 +1,5 @@
+import { deepSnakeKeys } from "string-ts";
+
 import { publicApi } from "@/config/api";
 import { parsePaginatedResponse } from "@/services/schemas";
 import { providerSchema, providersListSchema } from "./schemas";
@@ -7,7 +9,7 @@ export const getProvidersList = async ({ filter, page }: ProviderRequestParams =
   const response = await publicApi.get("providers", {
     params: {
       page,
-      filter,
+      filter: deepSnakeKeys(filter),
     },
   });
 

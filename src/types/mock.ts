@@ -7,7 +7,7 @@ export const ITEMS = {
   ],
   specialties: [
     {
-      id: 0,
+      id: undefined,
       label: "All specialties",
     },
     {
@@ -21,7 +21,7 @@ export const ITEMS = {
   ],
   clinics: [
     {
-      id: 0,
+      id: undefined,
       label: "All clinics",
     },
     {
