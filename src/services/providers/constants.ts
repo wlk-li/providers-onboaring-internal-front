@@ -4,3 +4,9 @@ export const PROVIDERS_FILTER_KEYS = {
   GENDER: "gender",
   FAVORITED: "favorited",
 } as const;
+
+export const GENDER_FILTER = {
+  MALE: "male",
+  FEMALE: "female",
+  OTHER: "other",
+} as const;

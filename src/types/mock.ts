@@ -1,17 +1,9 @@
 export const ITEMS = {
   genders: [
-    {
-      id: 0,
-      label: "All genders",
-    },
-    {
-      id: 1,
-      label: "Male",
-    },
-    {
-      id: 2,
-      label: "Female",
-    },
+    { id: undefined, label: "All genders" },
+    { id: "male", label: "Male" },
+    { id: "female", label: "Female" },
+    { id: "other", label: "Other" },
   ],
   specialties: [
     {
