@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { TextStack } from "@/components";
+import { Skeleton } from "@/components/ui/skeleton";
 import { type ProviderFilters, providerFiltersSchema } from "@/services/providers";
 import { useProvidersListQuery } from "@/services/providers/actions";
 import { CardsLayout } from "./-components/cards-layout";
@@ -14,7 +15,7 @@ const HomePage = () => {
   });
 
   const filter = watch();
-  const { data: providers } = useProvidersListQuery({ filter });
+  const { data: providers, isLoading } = useProvidersListQuery({ filter });
 
   const providersQuantity = providers?.data.length;
   const providersLabel =
@@ -39,9 +40,8 @@ const HomePage = () => {
             <FilterMenu control={control} />
 
             <div className="flex flex-col gap-3">
-              <span>{providersLabel}</span>
-
-              <CardsLayout providers={providers?.data} />
+              {isLoading ? <Skeleton className="h-6 w-30" /> : <span>{providersLabel}</span>}
+              <CardsLayout isLoading={isLoading} providers={providers?.data} />
             </div>
           </div>
         </div>
