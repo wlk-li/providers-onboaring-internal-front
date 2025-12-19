@@ -17,9 +17,8 @@ const HomePage = () => {
   const filter = watch();
   const { data: providers, isLoading } = useProvidersListQuery({ filter });
 
-  const providersQuantity = providers?.data.length;
-  const providersLabel =
-    providersQuantity !== 1 ? providersQuantity + " providers" : providersQuantity + " provider";
+  const providersQuantity = providers?.data.length !== undefined ? providers?.data.length : 0;
+  const providersLabel = providersQuantity + " provider(s) found";
 
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
@@ -40,7 +39,11 @@ const HomePage = () => {
             <FilterMenu control={control} />
 
             <div className="flex flex-col gap-3">
-              {isLoading ? <Skeleton className="h-6 w-30" /> : <span>{providersLabel}</span>}
+              {isLoading ? (
+                <Skeleton className="h-6 w-30" />
+              ) : (
+                <span className="text-gray-500">{providersLabel}</span>
+              )}
               <CardsLayout isLoading={isLoading} providers={providers?.data} />
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Button, Card, CardSkeleton, Icons, TextStack } from "@/components";
+import { Button, Card, CardSkeleton, Icons, NoSearchResult, TextStack } from "@/components";
 import type { Provider } from "@/services/providers/types";
 
 type CardsLayoutProps = {
@@ -10,7 +10,11 @@ type CardsLayoutProps = {
 export const CardsLayout = ({ isLoading, onViewDetails, providers }: CardsLayoutProps) => {
   if (!providers) {
     return (
-      <div className="flex items-center justify-center py-12 text-gray-500">No providers found</div>
+      <div className="flex flex-col items-center justify-center py-12">
+        <NoSearchResult />
+        <div className="text-gray-500">No providers found matching your search.</div>
+        <div className="text-gray-500">Try adjusting your filters.</div>
+      </div>
     );
   }
 
