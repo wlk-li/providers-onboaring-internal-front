@@ -14,15 +14,17 @@ export const CardsLayout = ({ isLoading, onViewDetails, providers }: CardsLayout
     );
   }
 
+  const CARD_FILL_AMOUNT = 6;
+
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {isLoading
-        ? Array.from({ length: 6 }).map((_, i) => {
+        ? Array.from({ length: CARD_FILL_AMOUNT }).map((_, i) => {
             return <CardSkeleton key={i} />;
           })
         : providers.map((provider) => {
             const primaryClinic = provider.clinics?.[0];
-            const additionalClinicsCount = (provider.clinics?.length || 0) - 1;
+            const additionalClinicsCount = provider.clinics?.length || 0;
 
             return (
               <Card.Root key={provider.id}>
@@ -43,7 +45,7 @@ export const CardsLayout = ({ isLoading, onViewDetails, providers }: CardsLayout
                     <Card.Location
                       icon={<Icons.Location />}
                       locationName={primaryClinic.name}
-                      moreCount={additionalClinicsCount > 0 ? additionalClinicsCount : undefined}
+                      moreCount={additionalClinicsCount}
                     />
                   ) : null}
 
