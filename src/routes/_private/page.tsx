@@ -17,8 +17,8 @@ const HomePage = () => {
   const filter = watch();
   const { data: providers, isLoading } = useProvidersListQuery({ filter });
 
-  const providersQuantity = providers?.data.length !== undefined ? providers?.data.length : 0;
-  const providersLabel = providersQuantity + " provider(s) found";
+  const providersQuantity = providers?.data.length || 0;
+  const providersLabel = `${providersQuantity} provider(s) found`;
 
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
