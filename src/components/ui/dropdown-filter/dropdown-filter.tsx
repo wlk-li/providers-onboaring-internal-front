@@ -1,16 +1,15 @@
 import { DropdownMenu } from "@/components";
 import { Icons } from "@/components";
 
-type FilterItem<T = string | number> = {
-  id: T;
+type FilterItem<T> = {
+  id: T | undefined;
   label: string;
 };
 
-type DropdownFilterProps<T = string | number> = {
-  label: string;
+type DropdownFilterProps<T> = {
   items: FilterItem<T>[];
-  selectedId: T;
-  onSelect: (id: T) => void;
+  selectedId: T | undefined;
+  onSelect: (id: T | undefined) => void;
 };
 
 export const DropdownFilter = <T extends string | number>({

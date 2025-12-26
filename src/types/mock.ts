@@ -6,31 +6,13 @@ export const ITEMS = {
     { id: "other", label: "Other" },
   ],
   specialties: [
-    {
-      id: undefined,
-      label: "All specialties",
-    },
-    {
-      id: 1,
-      label: "Neurology",
-    },
-    {
-      id: 2,
-      label: "Cardiology",
-    },
+    { id: undefined, label: "All specialties" },
+    { id: 1, label: "Neurology" },
+    { id: 2, label: "Cardiology" },
   ],
   clinics: [
-    {
-      id: undefined,
-      label: "All clinics",
-    },
-    {
-      id: 1,
-      label: "Clinic 1",
-    },
-    {
-      id: 2,
-      label: "Clinic 2",
-    },
+    { id: undefined, label: "All clinics" },
+    { id: 1, label: "Clinic 1" },
+    { id: 2, label: "Clinic 2" },
   ],
 };
