@@ -14,6 +14,8 @@ const AVAILABLE_ICONIFY_ICONS = {
   Heart: "heart",
   Location: "map-pin",
   X: "x",
+  Globe: "globe",
+  Phone: "phone",
 };
 
 export const initializeIcons = () => {

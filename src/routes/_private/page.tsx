@@ -1,19 +1,28 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { TextStack } from "@/components";
 import { Skeleton } from "@/components/ui/skeleton";
-import { providerFiltersSchema } from "@/services/providers";
+import { type Provider, providerFiltersSchema } from "@/services/providers";
 import { useProvidersListQuery } from "@/services/providers/actions";
 import { CardsLayout } from "./-components/cards-layout";
+import { ProviderDetailsDialog } from "./-components/details-dialogue";
 import { FilterMenu } from "./-components/filter-menu";
 
 const HomePage = () => {
   const filter = Route.useSearch();
   const parsedFilters = providerFiltersSchema.parse(filter);
   const { data: providers, isLoading } = useProvidersListQuery({ filter: parsedFilters });
+  const [selectedProvider, setSelectedProvider] = useState<Provider | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const providersQuantity = providers?.data.length || 0;
   const providersLabel = `${providersQuantity} provider(s) found`;
+
+  const handleViewDetails = (provider: Provider) => {
+    setSelectedProvider(provider);
+    setIsDialogOpen(true);
+  };
 
   return (
     <div className="flex flex-col px-6 md:px-12 lg:px-24">
@@ -39,11 +48,20 @@ const HomePage = () => {
               ) : (
                 <span className="text-gray-500">{providersLabel}</span>
               )}
-              <CardsLayout isLoading={isLoading} providers={providers?.data} />
+              <CardsLayout
+                isLoading={isLoading}
+                onViewDetails={handleViewDetails}
+                providers={providers?.data}
+              />
             </div>
           </div>
         </div>
       </div>
+      <ProviderDetailsDialog
+        onOpenChange={setIsDialogOpen}
+        open={isDialogOpen}
+        provider={selectedProvider}
+      />
     </div>
   );
 };
