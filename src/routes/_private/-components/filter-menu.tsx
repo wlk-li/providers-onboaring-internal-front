@@ -1,6 +1,8 @@
+import type { ChangeEvent } from "react";
 import { useNavigate } from "@tanstack/react-router";
 
 import { Button, DropdownFilter, Icons, Input } from "@/components";
+import type { ProviderFilters } from "@/services/providers";
 import { ITEMS } from "@/types/mock";
 import { Route } from "../page";
 
@@ -8,7 +10,7 @@ export const FilterMenu = () => {
   const navigate = useNavigate({ from: Route.fullPath });
   const filters = Route.useSearch();
 
-  const updateFilter = <K extends keyof typeof filters>(key: K, value: (typeof filters)[K]) => {
+  const updateFilter = <K extends keyof ProviderFilters>(key: K, value?: ProviderFilters[K]) => {
     navigate({
       search: (prev) => {
         const cleanValue = value === "" ? undefined : value;
@@ -22,7 +24,7 @@ export const FilterMenu = () => {
     <div className="flex w-full flex-col gap-4">
       <Input
         left={<Icons.Search />}
-        onChange={(e: { target: { value: string } }) => {
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
           updateFilter("search", e.target.value);
         }}
         placeholder="Search healthcare providers"
@@ -34,7 +36,7 @@ export const FilterMenu = () => {
           <DropdownFilter
             items={ITEMS.genders}
             onSelect={(value) => {
-              return updateFilter("gender", value as typeof filters.gender);
+              return updateFilter("gender", value);
             }}
             selectedId={filters.gender}
           />

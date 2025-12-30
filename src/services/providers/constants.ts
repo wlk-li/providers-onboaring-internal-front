@@ -3,6 +3,7 @@ export const PROVIDERS_FILTER_KEYS = {
   CLINIC_ID: "clinic_id",
   GENDER: "gender",
   FAVORITED: "favorited",
+  SEARCH: "search",
 } as const;
 
 export const GENDER_FILTER = {
