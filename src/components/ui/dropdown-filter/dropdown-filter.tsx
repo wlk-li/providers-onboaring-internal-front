@@ -1,19 +1,18 @@
 import { DropdownMenu } from "@/components";
 import { Icons } from "@/components";
 
-type FilterItem<T = string | number> = {
-  id: T;
-  label: string;
+type FilterItem<T> = {
+  readonly id: T;
+  readonly label: string;
 };
 
-type DropdownFilterProps<T = string | number> = {
-  label: string;
-  items: FilterItem<T>[];
-  selectedId: T;
-  onSelect: (id: T) => void;
+type DropdownFilterProps<T> = {
+  items: readonly FilterItem<T>[];
+  selectedId?: T;
+  onSelect: (id?: T) => void;
 };
 
-export const DropdownFilter = <T extends string | number>({
+export const DropdownFilter = <T extends string | number | undefined>({
   items,
   onSelect,
   selectedId,
