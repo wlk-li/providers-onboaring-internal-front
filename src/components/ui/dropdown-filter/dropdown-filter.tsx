@@ -8,7 +8,7 @@ type FilterItem<T> = {
 
 type DropdownFilterProps<T> = {
   items: readonly FilterItem<T>[];
-  selectedId: T | undefined;
+  selectedId?: T;
   onSelect: (id?: T) => void;
 };
 
