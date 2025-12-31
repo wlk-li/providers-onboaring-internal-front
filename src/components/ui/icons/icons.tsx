@@ -16,6 +16,7 @@ const AVAILABLE_ICONIFY_ICONS = {
   X: "x",
   Globe: "globe",
   Phone: "phone",
+  Mail: "mail",
 };
 
 export const initializeIcons = () => {
