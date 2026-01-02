@@ -13,15 +13,19 @@ const HomePage = () => {
   const filter = Route.useSearch();
   const parsedFilters = providerFiltersSchema.parse(filter);
   const { data: providers, isLoading } = useProvidersListQuery({ filter: parsedFilters });
-  const [selectedProvider, setSelectedProvider] = useState<Provider | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedProvider, setSelectedProvider] = useState<Provider | undefined>(undefined);
 
   const providersQuantity = providers?.data.length || 0;
   const providersLabel = `${providersQuantity} provider(s) found`;
 
   const handleViewDetails = (provider: Provider) => {
     setSelectedProvider(provider);
-    setIsDialogOpen(true);
+  };
+
+  const handleDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      setSelectedProvider(undefined);
+    }
   };
 
   return (
@@ -57,11 +61,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <ProviderDetailsDialog
-        onOpenChange={setIsDialogOpen}
-        open={isDialogOpen}
-        provider={selectedProvider}
-      />
+      <ProviderDetailsDialog onOpenChange={handleDialogOpenChange} provider={selectedProvider} />
     </div>
   );
 };
