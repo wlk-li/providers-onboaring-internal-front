@@ -1,6 +1,7 @@
 export * from "./avatar";
 export * from "./button";
 export * from "./card";
+export * from "./details-dialogue";
 export * from "./dropdown-filter";
 export * from "./dropdown-menu";
 export * from "./icons";
