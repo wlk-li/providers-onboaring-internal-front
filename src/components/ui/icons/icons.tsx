@@ -13,6 +13,11 @@ const AVAILABLE_ICONIFY_ICONS = {
   Search: "search",
   Heart: "heart",
   Location: "map-pin",
+  X: "x",
+  Globe: "globe",
+  Phone: "phone",
+  Mail: "mail",
+  User: "user",
 };
 
 export const initializeIcons = () => {
