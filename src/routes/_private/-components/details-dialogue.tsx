@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import type { Provider } from "@/services/providers/types";
+import { useProviderDetailQuery } from "@/services/providers/actions";
 
 const TAB_OPTIONS = {
   OVERVIEW: "overview",
@@ -18,7 +18,7 @@ const TAB_OPTIONS = {
 type TabOption = (typeof TAB_OPTIONS)[keyof typeof TAB_OPTIONS];
 
 type ProviderDetailsDialogProps = {
-  provider: Provider | undefined;
+  providerId: number | undefined;
   onOpenChange: (open: boolean) => void;
 };
 
@@ -33,27 +33,31 @@ const getInitials = (name: string) => {
     .slice(0, 2);
 };
 
-export const ProviderDetailsDialog = ({ onOpenChange, provider }: ProviderDetailsDialogProps) => {
+export const ProviderDetailsDialog = ({ onOpenChange, providerId }: ProviderDetailsDialogProps) => {
   const [activeTab, setActiveTab] = useState<TabOption>(TAB_OPTIONS.OVERVIEW);
 
-  if (!provider) {
+  const { data: provider } = useProviderDetailQuery(providerId ?? 0, {
+    enabled: !!providerId,
+  });
+
+  if (!providerId) {
     return null;
   }
 
   const CONTENT_BY_TAB = {
-    [TAB_OPTIONS.OVERVIEW]: <Overview provider={provider} />,
-    [TAB_OPTIONS.LOCATIONS]: <Locations provider={provider} />,
+    [TAB_OPTIONS.OVERVIEW]: provider ? <Overview provider={provider} /> : null,
+    [TAB_OPTIONS.LOCATIONS]: provider ? <Locations provider={provider} /> : null,
   };
 
   return (
-    <Dialog onOpenChange={onOpenChange} open={!!provider}>
+    <Dialog onOpenChange={onOpenChange} open={!!providerId}>
       <DialogContent className="bg-white sm:max-w-lg">
         <DialogHeader>
           <div className="flex items-center gap-4">
-            <Avatar initials={getInitials(provider.name)} size="lg" />
+            <Avatar initials={provider ? getInitials(provider.name) : ""} size="lg" />
             <div className="flex flex-col">
-              <DialogTitle className="text-xl">{provider.name}</DialogTitle>
-              <DialogDescription>{provider.specialty?.name}</DialogDescription>
+              <DialogTitle className="text-xl">{provider?.name}</DialogTitle>
+              <DialogDescription>{provider?.specialty?.name}</DialogDescription>
             </div>
           </div>
         </DialogHeader>

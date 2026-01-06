@@ -20,6 +20,15 @@ export const clinicSchema = z.object({
 export const providerSchema = z.object({
   id: z.number(),
   name: z.string(),
+  profilePic: z.url(),
+  specialty: specialtySchema,
+  clinics: z.array(clinicSchema),
+  isFavorited: z.boolean(),
+});
+
+export const providerDetailSchema = z.object({
+  id: z.number(),
+  name: z.string(),
   email: z.email(),
   phone: z.string(),
   gender: z.enum(["male", "female", "other"]),

@@ -61,7 +61,10 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <ProviderDetailsDialog onOpenChange={handleDialogOpenChange} provider={selectedProvider} />
+      <ProviderDetailsDialog
+        onOpenChange={handleDialogOpenChange}
+        providerId={selectedProvider?.id}
+      />
     </div>
   );
 };
