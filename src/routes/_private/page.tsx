@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { TextStack } from "@/components";
 import { Skeleton } from "@/components/ui/skeleton";
-import { type Provider, providerFiltersSchema } from "@/services/providers";
+import { providerFiltersSchema } from "@/services/providers";
 import { useProvidersListQuery } from "@/services/providers/actions";
 import { CardsLayout } from "./-components/cards-layout";
 import { ProviderDetailsDialog } from "./-components/details-dialogue";
@@ -13,18 +13,18 @@ const HomePage = () => {
   const filter = Route.useSearch();
   const parsedFilters = providerFiltersSchema.parse(filter);
   const { data: providers, isLoading } = useProvidersListQuery({ filter: parsedFilters });
-  const [selectedProvider, setSelectedProvider] = useState<Provider | undefined>(undefined);
+  const [selectedProviderId, setSelectedProviderId] = useState<number | undefined>(undefined);
 
   const providersQuantity = providers?.data.length || 0;
   const providersLabel = `${providersQuantity} provider(s) found`;
 
-  const handleViewDetails = (provider: Provider) => {
-    setSelectedProvider(provider);
+  const handleViewDetails = (provider: number) => {
+    setSelectedProviderId(provider);
   };
 
   const handleDialogOpenChange = (open: boolean) => {
     if (!open) {
-      setSelectedProvider(undefined);
+      setSelectedProviderId(undefined);
     }
   };
 
@@ -61,10 +61,12 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <ProviderDetailsDialog
-        onOpenChange={handleDialogOpenChange}
-        providerId={selectedProvider?.id}
-      />
+      {selectedProviderId ? (
+        <ProviderDetailsDialog
+          onOpenChange={handleDialogOpenChange}
+          providerId={selectedProviderId}
+        />
+      ) : null}
     </div>
   );
 };

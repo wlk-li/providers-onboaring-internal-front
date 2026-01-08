@@ -17,7 +17,6 @@ export const useProviderDetailQuery = (
 ) => {
   return useQuery({
     ...queries.detail(id),
-    enabled: !!id,
     ...props,
   });
 };

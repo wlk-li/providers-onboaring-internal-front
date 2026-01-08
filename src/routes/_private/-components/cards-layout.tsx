@@ -4,7 +4,7 @@ import type { Provider } from "@/services/providers/types";
 type CardsLayoutProps = {
   providers?: Provider[];
   isLoading?: boolean;
-  onViewDetails?: (provider: Provider) => void;
+  onViewDetails?: (providerId: number) => void;
 };
 
 export const CardsLayout = ({ isLoading, onViewDetails, providers }: CardsLayoutProps) => {
@@ -56,7 +56,7 @@ export const CardsLayout = ({ isLoading, onViewDetails, providers }: CardsLayout
                   <Button
                     className="w-full py-2"
                     onClick={() => {
-                      return onViewDetails?.(provider);
+                      return onViewDetails?.(provider.id);
                     }}
                     variant="primary"
                   >

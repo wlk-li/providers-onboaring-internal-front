@@ -41,7 +41,7 @@ export const ProviderDetailsDialog = ({ onOpenChange, providerId }: ProviderDeta
     enabled: !!providerId,
   });
 
-  if (!providerId || !provider) {
+  if (!provider) {
     return null;
   }
 
@@ -51,7 +51,7 @@ export const ProviderDetailsDialog = ({ onOpenChange, providerId }: ProviderDeta
 
   const CONTENT_BY_TAB = {
     [TAB_OPTIONS.OVERVIEW]: <Overview provider={provider} />,
-    [TAB_OPTIONS.LOCATIONS]: provider ? <Locations provider={provider} /> : null,
+    [TAB_OPTIONS.LOCATIONS]: <Locations provider={provider} />,
   };
 
   return (
