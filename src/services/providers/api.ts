@@ -2,7 +2,7 @@ import { deepSnakeKeys } from "string-ts";
 
 import { publicApi } from "@/config/api";
 import { parsePaginatedResponse } from "@/services/schemas";
-import { providerSchema, providersListSchema } from "./schemas";
+import { providerDetailSchema, providersListSchema } from "./schemas";
 import type { Provider, ProviderRequestParams } from "./types";
 
 export const getProvidersList = async ({ filter, page }: ProviderRequestParams = {}) => {
@@ -19,7 +19,7 @@ export const getProvidersList = async ({ filter, page }: ProviderRequestParams =
 export const getProvider = async (id: Provider["id"]) => {
   const response = await publicApi.get(`providers/${id}`);
 
-  const parsed = providerSchema.parse(response.data.data);
+  const parsed = providerDetailSchema.parse(response.data.data);
 
   return parsed;
 };

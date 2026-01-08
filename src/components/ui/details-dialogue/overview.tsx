@@ -1,7 +1,7 @@
 import { Icons, TextStack } from "@/components";
-import type { Provider } from "@/services/providers";
+import type { ProviderDetail } from "@/services/providers";
 
-export const Overview = ({ provider }: { provider: Provider }) => {
+export const Overview = ({ provider }: { provider: ProviderDetail }) => {
   return (
     <div className="flex flex-col divide-y divide-gray-200">
       <div className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
