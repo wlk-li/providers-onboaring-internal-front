@@ -12,5 +12,7 @@ export const getLoginPayloadSchema = () => {
 };
 
 export const loginResponseSchema = z.object({
-  authToken: z.string(),
+  accessToken: z.string(),
+  tokenType: z.string(),
+  expiresIn: z.number(),
 });
